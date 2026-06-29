@@ -1055,15 +1055,19 @@ img {
 
 
 .dinner-game {
-    position: relative;
+ position: relative; 
+    overflow: hidden;
 }
 
 #noBtn {
     position: relative;
+    z-index: 100;
     transition: left .25s ease, top .25s ease, transform .3s ease;
 }
 
 #yesBtn {
+    position: relative;
+    z-index: 10;
     transform-origin: center;
     transition: transform .35s ease, box-shadow .35s ease;
 }
@@ -1072,6 +1076,3 @@ img {
     box-shadow: 0 20px 45px rgba(247, 194, 207, .55);
 }
 
-#noBtn {
-    z-index: 100;
-}
