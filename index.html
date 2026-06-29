@@ -74,11 +74,11 @@
                 </p>
 
                 <p>
-                   I hope this little letter and my efforts show you how much i care and want to applogize.
+                   I hope this little E-letter and my efforts show you how much i care and am wanting to meet.
                 </p>
 
                 <p class="closing">
-                    chal aab bahut mehnat karli maine ye front end code karne main , I'm tired now. spent 3hrs on it lol
+                    chal aab bahut mehnat karli maine ye front end code karne main , I'm tired now. spent 3hrs on it midnight lol
                 </p>
 
             </div>
@@ -120,8 +120,8 @@
 
             <!-- Signature -->
             <div class="signature">
-                <p>Made with care and 3 cups of coffee at 1 am at night,</p>
-                <span>Nipun Unc</span>
+                <p>Made with care and 3 cups of coffee at 1 am at night.</p>
+                <span>Nipun Unc &#59;)</span>
             </div>
 
         </div>
@@ -244,59 +244,80 @@
 
         }, 1500);
 
+        //dinner game section
 
-        const noBtn = document.getElementById("noBtn");
-        const yesBtn = document.getElementById("yesBtn");
-        const response = document.getElementById("responseMessage");
-        const dinnerGame = document.querySelector(".dinner-game");
 
-        let yesScale = 1;
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const response = document.getElementById("responseMessage");
+const dinnerGame = document.querySelector(".dinner-game");
 
-        const noMessages = [
-            "Are you sure? 🥺",
-            "Think again 😭",
-            "The pasta is innocent 🍝",
-            "Nice try 😌",
-            "Almost got me 👀",
-            "Nope 😭",
-            "The answer is somewhere else ❤️"
-        ];
+let yesScale = 1;
 
-        noBtn.addEventListener("mouseenter", () => {
+const noMessages = [
+    "Are you sure? 🥺",
+    "Think again 😭",
+    "The pasta is innocent 🍝",
+    "Nice try 😌",
+    "Almost got me 👀",
+    "Nope 😭",
+    "The answer is somewhere else ❤️"
+];
 
-            const gameRect = dinnerGame.getBoundingClientRect();
+function moveNoButton(e) {
 
-            const btnWidth = noBtn.offsetWidth;
-            const btnHeight = noBtn.offsetHeight;
+    // Prevent actual click on mobile
+    if(e) e.preventDefault();
 
-            const randomX = Math.random() * (gameRect.width - btnWidth - 40);
-            const randomY = Math.random() * (gameRect.height - btnHeight - 40);
+    const gameRect = dinnerGame.getBoundingClientRect();
 
-            noBtn.style.position = "absolute";
-            noBtn.style.left = randomX + "px";
-            noBtn.style.top = randomY + "px";
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
 
-            const randomMessage =
-                noMessages[Math.floor(Math.random() * noMessages.length)];
+    const randomX =
+        Math.random() * (gameRect.width - btnWidth - 20);
 
-            noBtn.innerHTML = randomMessage;
+    const randomY =
+        Math.random() * (gameRect.height - btnHeight - 20);
 
-            yesScale += 0.15;
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 
-            yesBtn.style.transform = `scale(${yesScale})`;
+    const randomMessage =
+        noMessages[Math.floor(Math.random() * noMessages.length)];
 
-            if (yesScale > 2.2) {
-                yesBtn.innerHTML = "YES ❤️🍝";
-            }
+    noBtn.innerHTML = randomMessage;
 
-            if (yesScale > 3) {
-                yesBtn.innerHTML = "CLICK ME 😭❤️";
-            }
-        });
+    // Increase YES size every escape
+    yesScale += 0.15;
 
-        yesBtn.addEventListener("click", () => {
+    yesBtn.style.transform = `scale(${yesScale})`;
 
-            response.innerHTML = `
+    if (yesScale > 2) {
+        yesBtn.innerHTML = "YES ❤️🍝";
+    }
+
+    if (yesScale > 3) {
+        yesBtn.innerHTML = "CLICK ME ❤️";
+    }
+}
+
+/* Desktop */
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+/* Mobile */
+noBtn.addEventListener("touchstart", moveNoButton);
+
+/* Extra protection */
+noBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    moveNoButton(e);
+});
+
+yesBtn.addEventListener("click", () => {
+
+    response.innerHTML = `
         <div style="
             font-family:Parisienne;
             font-size:clamp(42px,5vw,64px);
@@ -304,12 +325,12 @@
             line-height:1.4;
         ">
             Yay! ❤️<br>
-            Dinner tonight at 7:00 PM it is 🍝✨
+            Dinner tonight at 8:30 PM it is 🍝✨
         </div>
     `;
 
-            document.querySelector(".game-buttons").style.display = "none";
-        });
+    document.querySelector(".game-buttons").style.display = "none";
+});
 
 
 
