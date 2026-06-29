@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, Nimisha ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="heart h1">❤️</div>
+    <div class="heart h2">💖</div>
+    <div class="heart h3">💕</div>
+    <div class="heart h4">💗</div>
+    <div class="heart h5">💞</div>
+    <div class="heart h6">❤️</div>
+
+    <!-- Floating Flowers -->
+    <div class="flower f1">🌸</div>
+    <div class="flower f2">🌷</div>
+    <div class="flower f3">🌺</div>
+    <div class="flower f4">🌼</div>
+    <div class="flower f5">🌹</div>
+    <div class="flower f6">🪷</div>
+
+    <!-- Sparkles -->
+    <div class="sparkle s1">✨</div>
+    <div class="sparkle s2">✨</div>
+    <div class="sparkle s3">✨</div>
+    <div class="sparkle s4">✨</div>
+    <div class="sparkle s5">✨</div>
+
+    <div class="container">
+
+        <div class="letter-card">
+
+            <!-- Hero Polaroid -->
+            <div class="cover-polaroid">
+                <img src="photos/photo6.jpg" alt="Cover Photo">
+                <span>cute kaleshi</span>
+            </div>
+
+            <!-- Animated Title -->
+            <div class="title-wrapper">
+                <div class="title-heart">❤️</div>
+                <h1>I'm Sorry, Nemosaur</h1>
+            </div>
+
+            <div class="divider">❀ ❀ ❀</div>
+
+            <!-- Letter -->
+            <div class="letter">
+
+                <p>Dear Nimisha,</p>
+
+                <p>
+                    I'm truly sorry for hurting your feelings and for the pain my actions may have caused.
+                </p>
+
+                <p>
+                    You mean more to me than the mistakes I made, and I genuinely regret them. I hope
+                </p>
+
+                <p>
+                    this little letter carries the sincerity of the apology I wish I had expressed better in words.
+                </p>
+
+                <p class="closing">
+                    chal aab bahut mehnat karli maine ye front end code karne main , I'm tired now. spent 3hrs on it lol
+                </p>
+
+            </div>
+
+            <!-- Memory Gallery -->
+            <section class="gallery">
+
+                <div class="photo rotate-left">
+                    <div class="tape"></div>
+                    <img src="photos/photo1.jpg" alt="Memory 1">
+                    <p>Aye meri hot cheetah</p>
+                </div>
+
+                <div class="photo rotate-right">
+                    <div class="tape"></div>
+                    <img src="photos/photo2.jpg" alt="Memory 2">
+                    <p>pookie potato</p>
+                </div>
+
+                <div class="photo rotate-left">
+                    <div class="tape"></div>
+                    <img src="photos/photo3.jpg" alt="Memory 3">
+                    <p>Damn those pearl eyes</p>
+                </div>
+
+                <div class="photo rotate-right">
+                    <div class="tape"></div>
+                    <img src="photos/photo4.jpg" alt="Memory 4">
+                    <p>One of my favourite pictures.</p>
+                </div>
+
+                <div class="photo rotate-left">
+                    <div class="tape"></div>
+                    <img src="photos/photo5.jpg" alt="Memory 5">
+                    <p>Beautiful, as always ♡</p>
+                </div>
+
+            </section>
+
+            <!-- Signature -->
+            <div class="signature">
+                <p>Made with care and 3 cups of coffee at 1 am at night,</p>
+                <span>Nipun Unc</span>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <!-- Dinner Invite Section -->
+    <section class="dinner-game">
+        <h2>One last question... 🌷</h2>
+        <p> Would you forgive me enough to join me for dinner tonight at 7:00 PM? 🍝✨ </p>
+        <div class="game-buttons">
+
+            <button id="yesBtn">Yes ❤️</button>
+            <button id="noBtn">No 🙈</button>
+        </div>
+        <div id="responseMessage"></div>
+    </section>
+
+    <!-- JavaScript Effects -->
+    <script>
+
+        // Mouse trail hearts
+        // document.addEventListener("mousemove", function(e){
+
+        //     const heart = document.createElement("div");
+
+        //     heart.className = "trail-heart";
+
+        //     const hearts = ["❤️","💕","💖","💗","💞"];
+
+        //     heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+        //     heart.style.left = e.pageX + "px";
+        //     heart.style.top = e.pageY + "px";
+
+        //     document.body.appendChild(heart);
+
+        //     setTimeout(() => {
+        //         heart.remove();
+        //     }, 1500);
+
+        // });
+
+
+        // Stagger photo animations
+        window.addEventListener("load", () => {
+
+            const photos = document.querySelectorAll(".photo");
+
+            photos.forEach((photo, index) => {
+                photo.style.animationDelay = `${index * 0.35}s`;
+            });
+
+        });
+
+
+        // Floating sparkles
+        setInterval(() => {
+
+            const sparkle = document.createElement("div");
+
+            sparkle.className = "dynamic-sparkle";
+            sparkle.innerHTML = "✨";
+
+            sparkle.style.left = Math.random() * window.innerWidth + "px";
+            sparkle.style.top = window.innerHeight + "px";
+
+            sparkle.style.fontSize = (15 + Math.random() * 25) + "px";
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 6000);
+
+        }, 500);
+
+
+        // Random floating hearts
+        setInterval(() => {
+
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+            heart.innerHTML = "💖";
+
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.fontSize = (20 + Math.random() * 30) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+
+        }, 1200);
+
+
+        // Random floating flowers
+        setInterval(() => {
+
+            const flower = document.createElement("div");
+
+            flower.className = "floating-flower";
+
+            const flowers = ["🌸", "🌷", "🌹", "🌺", "🪷", "🌼"];
+
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+
+            flower.style.left = Math.random() * window.innerWidth + "px";
+            flower.style.fontSize = (20 + Math.random() * 25) + "px";
+
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+
+        }, 1500);
+
+
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const response = document.getElementById("responseMessage");
+        const dinnerGame = document.querySelector(".dinner-game");
+
+        let yesScale = 1;
+
+        const noMessages = [
+            "Are you sure? 🥺",
+            "Think again 😭",
+            "The pasta is innocent 🍝",
+            "Nice try 😌",
+            "Almost got me 👀",
+            "Nope 😭",
+            "The answer is somewhere else ❤️"
+        ];
+
+        noBtn.addEventListener("mouseenter", () => {
+
+            const gameRect = dinnerGame.getBoundingClientRect();
+
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            const randomX = Math.random() * (gameRect.width - btnWidth - 40);
+            const randomY = Math.random() * (gameRect.height - btnHeight - 40);
+
+            noBtn.style.position = "absolute";
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+
+            const randomMessage =
+                noMessages[Math.floor(Math.random() * noMessages.length)];
+
+            noBtn.innerHTML = randomMessage;
+
+            yesScale += 0.15;
+
+            yesBtn.style.transform = `scale(${yesScale})`;
+
+            if (yesScale > 2.2) {
+                yesBtn.innerHTML = "YES ❤️🍝";
+            }
+
+            if (yesScale > 3) {
+                yesBtn.innerHTML = "CLICK ME 😭❤️";
+            }
+        });
+
+        yesBtn.addEventListener("click", () => {
+
+            response.innerHTML = `
+        <div style="
+            font-family:Parisienne;
+            font-size:clamp(42px,5vw,64px);
+            color:#b47a72;
+            line-height:1.4;
+        ">
+            Yay! ❤️<br>
+            Dinner tonight at 7:00 PM it is 🍝✨
+        </div>
+    `;
+
+            document.querySelector(".game-buttons").style.display = "none";
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
