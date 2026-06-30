@@ -1076,3 +1076,153 @@ img {
     box-shadow: 0 20px 45px rgba(247, 194, 207, .55);
 }
 
+/* pop up css */
+
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+
+    z-index:999999;
+
+    animation:overlayFade .4s ease;
+}
+
+.popup-card{
+    width:min(90%,550px);
+
+    padding:50px 40px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(20px);
+
+    border-radius:35px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.25);
+
+    animation:popupEnter .6s ease;
+}
+
+.popup-emoji{
+    font-size:58px;
+    margin-bottom:25px;
+
+    animation:angryShake 1.2s infinite;
+}
+
+.popup-card h2{
+    font-family:'Parisienne',cursive;
+    font-size:58px;
+    color:#b56b6b;
+
+    margin-bottom:25px;
+}
+
+.popup-card p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    line-height:1.5;
+
+    color:#5e4c47;
+
+    margin-bottom:35px;
+}
+
+#popupBtn{
+    border:none;
+    padding:16px 36px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        #f6c8c8,
+        #efb2b2
+    );
+
+    color:#6b3f3f;
+
+    font-size:20px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#popupBtn:hover{
+    transform:scale(1.08);
+}
+
+@keyframes angryShake{
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-8px);
+    }
+
+    50%{
+        transform:translateX(8px);
+    }
+
+    75%{
+        transform:translateX(-8px);
+    }
+}
+
+@keyframes popupEnter{
+    from{
+        opacity:0;
+        transform:
+            translateY(40px)
+            scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes overlayFade{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+@media(max-width:768px){
+
+    .popup-card{
+        padding:40px 25px;
+    }
+
+    .popup-card h2{
+        font-size:42px;
+    }
+
+    .popup-card p{
+        font-size:26px;
+    }
+
+    .popup-emoji{
+        font-size:44px;
+    }
+}
