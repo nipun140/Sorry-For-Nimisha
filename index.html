@@ -141,7 +141,32 @@
             <button id="noBtn">No 🙈</button>
         </div>
         <div id="responseMessage"></div>
-    </section>
+    </section> 
+
+<!-- Intro Popup -->
+<div id="effortPopup" class="popup-overlay">
+
+    <div class="popup-card">
+
+        <div class="popup-emoji">
+            😠 😤 😡
+        </div>
+
+        <h2>Wait a second...</h2>
+
+        <p>
+            You don't deserve a guy like me and my efforts.
+        </p>
+
+        <button id="popupBtn">
+            Continue anyway 🙄
+        </button>
+
+    </div>
+
+</div>
+
+
 
     <!-- JavaScript Effects -->
     <script>
@@ -167,6 +192,22 @@
         //     }, 1500);
 
         // });
+
+
+const popup = document.getElementById("effortPopup");
+const popupBtn = document.getElementById("popupBtn");
+
+popupBtn.addEventListener("click", () => {
+
+    popup.style.opacity = "0";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 400);
+
+});
+
+
 
 
         // Stagger photo animations
